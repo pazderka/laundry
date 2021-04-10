@@ -1,0 +1,19 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  overflow-x: hidden;
+}
