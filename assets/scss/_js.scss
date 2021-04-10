@@ -1,0 +1,12 @@
+.openMenu {
+  left: 0;
+}
+
+body {
+  transition: background-color ease-in-out 250ms;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+}

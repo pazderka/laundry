@@ -2,37 +2,18 @@
 <html lang="cs">
 
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>
-    <%= htmlWebpackPlugin.options.title %>
+    Prádelna Štěpánská | praní, žehlení, mandlování
   </title>
 </head>
 
 <body>
-  <nav class="nav">
-    <div class="container">
-      <div class="menu">
-        <div class="menu__burger">
-          <span class="menu__stick"></span>
-          <span class="menu__stick"></span>
-          <span class="menu__stick"></span>
-        </div>
-        <header class="menu__header">
-          Prádelna štěpánská
-        </header>
-      </div>
-    </div>
-    <div class="nav__side">
-      <ul>
-        <li>hello</li>
-        <li>hello</li>
-        <li>hello</li>
-        <li>hello</li>
-        <li>hello</li>
-        <li>hello</li>
-      </ul>
-    </div>
-  </nav>
-
+  <%= require('html-loader!./navigation.html').default %>
+    <%= require('html-loader!./hero.html').default %>
+      <%= require('html-loader!./about.html').default %>
 </body>
 
 </html>

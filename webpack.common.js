@@ -5,7 +5,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'assets/js/laundry.js'),
+  entry: {
+    js: path.resolve(__dirname, 'assets/js/laundry.js'),
+    css: path.resolve(__dirname, 'assets/scss/main.scss')
+  },
   output: {
     filename: '[name].[contenthash].bundle.js',
     path: path.resolve(__dirname, 'build'),
@@ -32,15 +35,12 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               implementation: require('sass'),
-              sassOptions: {
-                fiber: require('fibers')
-              }
             }
           }
         ]
       },
       {
-        test: /\.(png|jpe?g|gif|svg|ttf)$/i,
+        test: /\.(svg|woff|woff2|ttf|jpg)$/i,
         use: [
           {
             loader: 'file-loader',
@@ -50,26 +50,23 @@ module.exports = {
             }
           }
         ]
-      }
+      },
     ]
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'templates/index.html'),
-      title: 'Prádelna Štěpánská | praní, žehlení, mandlování',
-      meta: {
-        'viewport': 'width=device-width, initial-scale=1.0',
-        'charset': 'UTF-8',
-        'set-cookie': {
-          'http-equiv': 'X-UA-Compatible',
-          'content': 'IE=edge'
-        }
-      },
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
-      chunkFilename: '[id].[contenthash].css'
+      filename: '[name].[contenthash].bundle.css',
+      chunkFilename: '[id].[contenthash].bundle.css'
     }),
-  ]
+  ],
+  resolve: {
+    alias: {
+      LaundryJS: path.resolve(__dirname, 'assets/js'),
+      LaundryCSS: path.resolve(__dirname, 'assets/scss')
+    }
+  }
 };

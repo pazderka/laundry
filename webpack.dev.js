@@ -6,9 +6,4 @@ module.exports = merge(common, {
   target: 'web',
   mode: 'development',
   devtool: 'source-map',
-  devServer: {
-    compress: true,
-    port: 9000,
-    contentBase: path.resolve(__dirname, 'build'),
-  }
 });
