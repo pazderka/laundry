@@ -3,6 +3,27 @@
 @import 'reset';
 @import 'utils';
 
+.about, .services, .pricing {
+  padding: 3em .5em;
+  text-align: justify;
+  &:nth-child(odd) {
+    background-color: $lightGray;
+  }
+
+  h2 {
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 2rem;
+    font-weight: normal;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+}
+
 // Menu + hamburger
 .nav {
   background-color: $primary;
@@ -122,6 +143,15 @@
     align-self: end;
     text-align: right;
     line-height: 1.3;
+  }
+}
+
+.about {
+  &__description {
+    background-color: $primaryLight;
+    line-height: 2.5rem;
+    padding: 2em;
+    border-radius: 10px;
   }
 }
 @import 'js';

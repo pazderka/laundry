@@ -6,7 +6,7 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    js: path.resolve(__dirname, 'assets/js/laundry.js'),
+    js: path.resolve(__dirname, 'assets/js/laundry.ts'),
     css: path.resolve(__dirname, 'assets/scss/main.scss')
   },
   output: {
@@ -19,6 +19,11 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules)/,
         loader: 'babel-loader',
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
       {
         test: /\.s[ac]ss$/i,
@@ -67,6 +72,7 @@ module.exports = {
     alias: {
       LaundryJS: path.resolve(__dirname, 'assets/js'),
       LaundryCSS: path.resolve(__dirname, 'assets/scss')
-    }
+    },
+    extensions: ['.tsx', '.ts', '.js'],
   }
 };
